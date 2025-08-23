@@ -5,13 +5,15 @@ node_modules/
 dist/*
 !dist/assets/
 !dist/data/
+!dist/assets/**
+!dist/data/**
+!dist/.keep
+
+# ✅ Allow placeholder and README files to ensure visibility
 !dist/assets/.gitkeep
 !dist/data/.gitkeep
 !dist/assets/README.md
 !dist/data/README.md
-
-# ✅ Allow placeholder to track dist folder
-!dist/.keep
 
 # 🧪 Ignore test coverage and logs
 coverage/

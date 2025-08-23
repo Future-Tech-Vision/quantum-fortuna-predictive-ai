@@ -2,7 +2,13 @@
 node_modules/
 
 # 📂 Ignore build output
-dist/
+dist/*
+!dist/assets/
+!dist/data/
+!dist/assets/.gitkeep
+!dist/data/.gitkeep
+!dist/assets/README.md
+!dist/data/README.md
 
 # ✅ Allow placeholder to track dist folder
 !dist/.keep

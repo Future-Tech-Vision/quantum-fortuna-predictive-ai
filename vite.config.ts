@@ -5,21 +5,27 @@ import path from 'path';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/quantum-fortuna-predictive-ai/', // ✅ Required for GitHub Pages subpath
+
+  // ✅ Ensures assets and routing work on GitHub Pages
+  base: '/quantum-fortuna-predictive-ai/',
+
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'), // Optional: cleaner imports like @/components
+      '@': path.resolve(__dirname, 'src'), // cleaner imports like @/components
     },
   },
+
   optimizeDeps: {
-    exclude: ['lucide-react'],
+    exclude: ['lucide-react'], // avoid pre-bundling errors
   },
+
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
     rollupOptions: {
-      input: path.resolve(__dirname, 'index.html'), // ✅ Explicit entry point
+      // ✅ Explicit entry point to avoid "missing index" issues
+      input: path.resolve(__dirname, 'index.html'),
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],

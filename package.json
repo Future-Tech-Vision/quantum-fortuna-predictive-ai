@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "npm run build && echo 'Build complete - ready for deployment'"
+    "deploy": "npm run build && echo 'Build complete - ready for GitHub Pages deployment'",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "chart.js": "^4.5.0",

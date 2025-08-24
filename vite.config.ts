@@ -6,17 +6,17 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
 
-  // ✅ Ensures assets and routing work on GitHub Pages
+  // ✅ GitHub Pages base path
   base: '/quantum-fortuna-predictive-ai/',
 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'), // cleaner imports like @/components
+      '@': path.resolve(__dirname, 'src'),
     },
   },
 
   optimizeDeps: {
-    exclude: ['lucide-react'], // avoid pre-bundling errors
+    exclude: ['lucide-react'],
   },
 
   build: {
@@ -24,7 +24,6 @@ export default defineConfig({
     assetsDir: 'assets',
     sourcemap: false,
     rollupOptions: {
-      // ✅ Explicit entry point to avoid "missing index" issues
       input: path.resolve(__dirname, 'index.html'),
       output: {
         manualChunks: {
@@ -32,7 +31,20 @@ export default defineConfig({
           charts: ['chart.js', 'react-chartjs-2'],
           icons: ['lucide-react'],
         },
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
       },
     },
+  },
+
+  server: {
+    port: 5173,
+    host: true,
+  },
+
+  preview: {
+    port: 4173,
+    host: true,
   },
 });

@@ -1,0 +1,35 @@
+# 📦 Ignore dependencies
+node_modules/
+
+# 📂 Ignore build output
+dist/*
+!dist/assets/
+!dist/data/
+!dist/assets/**
+!dist/data/**
+!dist/.keep
+
+# ✅ Allow placeholder and README files to ensure visibility
+!dist/assets/.gitkeep
+!dist/data/.gitkeep
+!dist/assets/README.md
+!dist/data/README.md
+
+# 🧪 Ignore test coverage and logs
+coverage/
+*.log
+
+# ⚙️ Ignore system files
+.DS_Store
+Thumbs.db
+
+# 🧼 Ignore environment configs
+.env
+.env.local
+.env.*.local
+
+# 🧾 Ignore IDE/editor configs
+.vscode/
+.idea/
+*.swp
+dist/

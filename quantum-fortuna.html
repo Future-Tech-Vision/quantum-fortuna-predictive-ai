@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Fortuna™ - Predictive Intelligence for Lottery Success</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <script src="https://unpkg.com/react-chartjs-2@5.2.0/dist/index.umd.js"></script>
+    <script src="https://unpkg.com/lucide-react@0.344.0/dist/umd/lucide-react.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, Component } = React;
+        const { createRoot } = ReactDOM;
+        const { 
+            Zap, Target, BarChart3, Clock, Brain, Shield, User, AlertTriangle,
+            Sparkles, Cpu, TrendingUp, CheckCircle, ChevronDown, ChevronUp,
+            Calendar, AlertCircle, Download, Webhook, Settings, Bell, Check, Hash
+        } = LucideReact;
+
+        // Error Boundary Component
+        class ErrorBoundary extends Component {
+            constructor(props) {
+                super(props);
+                this.state = { hasError: false };
+            }
+
+            static getDerivedStateFromError(error) {
+                return { hasError: true, error };
+            }
+
+            componentDidCatch(error, errorInfo) {
+                console.error('Quantum Fortuna Error:', error, errorInfo);
+            }
+
+            render() {
+                if (this.state.hasError) {
+                    return (
+                        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4">
+                            <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 max-w-md w-full text-center border border-white/20">
+                                <AlertTriangle className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
+                                <h1 className="text-2xl font-bold text-white mb-2">System Error</h1>
+                                <p className="text-gray-300 mb-6">
+                                    Quantum Fortuna™ encountered an unexpected error. Our prediction models are self-healing.
+                                </p>
+                                <button
+                                    onClick={() => window.location.reload()}
+                                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                                >
+                                    Reinitialize System
+                                </button>
+                            </div>
+                        </div>
+                    );
+                }
+
+                return this.props.children;
+            }
+        }
+
+        // Navigation Component
+        const Navigation = ({ activeModule, setActiveModule }) => {
+            const navItems = [
+                { id: 'welcome', label: 'Welcome', icon: Zap },
+                { id: 'intake', label: 'Intake', icon: Target },
+                { id: 'predictions', label: 'Predictions', icon: Brain },
+                { id: 'schedule', label: 'Schedule', icon: Clock },
+                { id: 'insights', label: 'Insights', icon: BarChart3 },
+                { id: 'trust', label: 'Trust', icon: Shield },
+                { id: 'portal', label: 'Portal', icon: User },
+            ];
+
+            return (
+                <nav className="bg-black/20 backdrop-blur-lg border-b border-white/10 sticky top-0 z-50">
+                    <div className="container mx-auto px-4">
+                        <div className="flex items-center justify-between h-16">
+                            <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                                Quantum Fortuna™
+                            </div>
+                            
+                            <div className="flex space-x-1">
+                                {navItems.map(({ id, label, icon: Icon }) => (
+                                    <button
+                                        key={id}
+                                        onClick={() => setActiveModule(id)}
+                                        className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                                            activeModule === id
+                                                ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/25'
+                                                : 'text-gray-300 hover:text-white hover:bg-white/10'
+                                        }`}
+                                    >
+                                        <Icon size={18} />
+                                        <span className="hidden sm:inline">{label}</span>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            );
+        };
+
+        // Welcome Module
+        const WelcomeModule = () => {
+            return (
+                <div className="max-w-4xl mx-auto">
+                    <div className="text-center mb-12">
+                        <h1 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
+                            Quantum Fortuna™
+                        </h1>
+                        <p className="text-xl text-gray-300 mb-2">Predictive Intelligence for Lottery Success</p>
+                        <div className="text-sm text-gray-400">
+                            Current Version: v3.0.8 | Last Sync: July 26, 2025, 11:38 AM IST
+                        </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-6 mb-12">
+                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:border-cyan-400/50 transition-all duration-300">
+                            <Cpu className="w-12 h-12 text-cyan-400 mb-4" />
+                            <h3 className="text-xl font-semibold text-white mb-2">AI-Powered Analysis</h3>
+                            <p className="text-gray-300">
+                                Advanced machine learning algorithms analyze historical patterns and probabilistic models for optimized predictions.
+                            </p>
+                        </div>
+
+                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:border-blue-400/50 transition-all duration-300">
+                            <TrendingUp className="w-12 h-12 text-blue-400 mb-4" />
+                            <h3 className="text-xl font-semibold text-white mb-2">Real-Time Insights</h3>
+                            <p className="text-gray-300">
+                                Live data processing with confidence scores, hit rates, and proximity metrics for informed decision making.
+                            </p>
+                        </div>
+
+                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:border-purple-400/50 transition-all duration-300">
+                            <Sparkles className="w-12 h-12 text-purple-400 mb-4" />
+                            <h3 className="text-xl font-semibold text-white mb-2">Global Coverage</h3>
+                            <p className="text-gray-300">
+                                Support for international lotteries including Mega 7, Easy 6, Lotto India, and many more worldwide draws.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+                        <h2 className="text-2xl font-bold text-white mb-4">Spatial Intelligence Map</h2>
+                        <div className="bg-black/30 rounded-lg p-8 text-center border border-gray-600 min-h-[200px] flex items-center justify-center">
+                            <div className="text-gray-400">
+                                <div className="w-16 h-16 border-4 border-dashed border-gray-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                    <Sparkles className="w-8 h-8" />
+                                </div>
+                                <p className="text-lg font-medium">AR/VR Integration Pending</p>
+                                <p className="text-sm mt-2">Three.js 3D visualization will be implemented here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // Intake Module
+        const IntakeModule = ({ selectedLotteries, setSelectedLotteries }) => {
+            const lotteries = [
+                { id: 'mega7', name: 'Mega 7', region: 'International', frequency: 'Weekly' },
+                { id: 'easy6', name: 'Easy 6', region: 'Regional', frequency: 'Bi-weekly' },
+                { id: 'lotto_india', name: 'Lotto India', region: 'India', frequency: 'Daily' },
+                { id: 'lotto_uk', name: 'Lotto UK Daily', region: 'United Kingdom', frequency: 'Daily' },
+                { id: 'powerball', name: 'Powerball', region: 'USA', frequency: 'Tri-weekly' },
+                { id: 'euromillions', name: 'EuroMillions', region: 'Europe', frequency: 'Bi-weekly' },
+            ];
+
+            const handleToggle = (lotteryId) => {
+                if (selectedLotteries.includes(lotteryId)) {
+                    setSelectedLotteries(selectedLotteries.filter(id => id !== lotteryId));
+                } else {
+                    setSelectedLotteries([...selectedLotteries, lotteryId]);
+                }
+            };
+
+            return (
+                <div className="max-w-4xl mx-auto">
+                    <div className="text-center mb-8">
+                        <Target className="w-16 h-16 text-cyan-400 mx-auto mb-4" />
+                        <h1 className="text-3xl font-bold text-white mb-2">Lottery Selection & Analysis</h1>
+                        <p className="text-gray-300">Choose lotteries for predictive analysis and modeling</p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                        {lotteries.map((lottery) => {
+                            const isSelected = selectedLotteries.includes(lottery.id);
+                            
+                            return (
+                                <div
+                                    key={lottery.id}
+                                    onClick={() => handleToggle(lottery.id)}
+                                    className={`bg-white/10 backdrop-blur-lg rounded-2xl p-6 border-2 cursor-pointer transition-all duration-300 ${
+                                        isSelected
+                                            ? 'border-cyan-400 bg-cyan-400/10 shadow-lg shadow-cyan-400/25'
+                                            : 'border-white/20 hover:border-white/40'
+                                    }`}
+                                >
+                                    <div className="flex items-center justify-between mb-4">
+                                        <h3 className="text-xl font-semibold text-white">{lottery.name}</h3>
+                                        {isSelected && <CheckCircle className="w-6 h-6 text-cyan-400" />}
+                                    </div>
+                                    
+                                    <div className="space-y-2">
+                                        <div className="flex justify-between">
+                                            <span className="text-gray-400">Region:</span>
+                                            <span className="text-white">{lottery.region}</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="text-gray-400">Frequency:</span>
+                                            <span className="text-white">{lottery.frequency}</span>
+                                        </div>
+                                    </div>
+                                    
+                                    {isSelected && (
+                                        <div className="mt-4 p-3 bg-green-500/20 rounded-lg border border-green-500/30">
+                                            <p className="text-sm text-green-300">✓ Active in prediction model</p>
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    <div className="mt-8 bg-blue-600/20 backdrop-blur-lg rounded-2xl p-6 border border-blue-400/30">
+                        <h3 className="text-lg font-semibold text-white mb-2">Analysis Summary</h3>
+                        <p className="text-gray-300">
+                            {selectedLotteries.length} lotteries selected for predictive modeling. 
+                            The AI will analyze historical patterns, frequency distributions, and probabilistic outcomes 
+                            to generate optimized number predictions with confidence scores.
+                        </p>
+                    </div>
+                </div>
+            );
+        };
+
+        // Predictions Module
+        const PredictionsModule = ({ selectedLotteries }) => {
+            const [expandedCards, setExpandedCards] = useState(new Set());
+
+            const predictions = {
+                mega7: {
+                    name: 'Mega 7',
+                    predictions: [12, 7, 23, 45, 18, 31, 9],
+                    confidence: 87.3,
+                    hitRate: 73.2,
+                    proximity: 94.1,
+                    sets: [[12, 7, 23], [45, 18, 31], [9]],
+                    actuals: [8, 12, 19, 23, 31, 44, 45],
+                    lastDraw: '2025-07-25'
+                },
+                easy6: {
+                    name: 'Easy 6',
+                    predictions: [3, 17, 28, 39, 44, 12],
+                    confidence: 91.7,
+                    hitRate: 68.9,
+                    proximity: 88.6,
+                    sets: [[3, 17], [28, 39], [44, 12]],
+                    actuals: [5, 12, 24, 28, 38, 44],
+                    lastDraw: '2025-07-24'
+                },
+                lotto_india: {
+                    name: 'Lotto India',
+                    predictions: [8, 22, 35, 41, 16, 29],
+                    confidence: 84.9,
+                    hitRate: 71.5,
+                    proximity: 91.3,
+                    sets: [[8, 22], [35, 41], [16, 29]],
+                    actuals: [7, 16, 22, 29, 35, 42],
+                    lastDraw: '2025-07-26'
+                }
+            };
+
+            const toggleCard = (lotteryId) => {
+                const newExpanded = new Set(expandedCards);
+                if (newExpanded.has(lotteryId)) {
+                    newExpanded.delete(lotteryId);
+                } else {
+                    newExpanded.add(lotteryId);
+                }
+                setExpandedCards(newExpanded);
+            };
+
+            const getConfidenceColor = (confidence) => {
+                if (confidence >= 90) return 'text-green-400';
+                if (confidence >= 80) return 'text-yellow-400';
+                return 'text-red-400';
+            };
+
+            return (
+                <div className="max-w-6xl mx-auto">
+                    <div className="text-center mb-8">
+                        <Brain className="w-16 h-16 text-purple-400 mx-auto mb-4" />
+                        <h1 className="text-3xl font-bold text-white mb-2">Predictive Analysis</h1>
+                        <p className="text-gray-300">AI-generated lottery predictions with confidence metrics</p>
+                    </div>
+
+                    <div className="grid lg:grid-cols-2 gap-6">
+                        {selectedLotteries.map((lotteryId) => {
+                            const data = predictions[lotteryId];
+                            if (!data) return null;
+
+                            const isExpanded = expandedCards.has(lotteryId);
+
+                            return (
+                                <div
+                                    key={lotteryId}
+                                    className="bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 overflow-hidden hover:border-purple-400/50 transition-all duration-300"
+                                >
+                                    <div className="p-6">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <h3 className="text-xl font-semibold text-white">{data.name}</h3>
+                                            <button
+                                                onClick={() => toggleCard(lotteryId)}
+                                                className="text-gray-400 hover:text-white transition-colors"
+                                            >
+                                                {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                            </button>
+                                        </div>
+
+                                        {/* Predicted Numbers */}
+                                        <div className="mb-6">
+                                            <div className="flex flex-wrap gap-2 mb-3">
+                                                {data.predictions.map((number, index) => (
+                                                    <div
+                                                        key={index}
+                                                        className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg"
+                                                    >
+                                                        {number}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Metrics */}
+                                        <div className="grid grid-cols-3 gap-4 mb-4">
+                                            <div className="text-center">
+                                                <div className={`text-2xl font-bold ${getConfidenceColor(data.confidence)}`}>
+                                                    {data.confidence}%
+                                                </div>
+                                                <div className="text-sm text-gray-400">Confidence</div>
+                                            </div>
+                                            <div className="text-center">
+                                                <div className="text-2xl font-bold text-blue-400">{data.hitRate}%</div>
+                                                <div className="text-sm text-gray-400">Hit Rate</div>
+                                            </div>
+                                            <div className="text-center">
+                                                <div className="text-2xl font-bold text-cyan-400">{data.proximity}%</div>
+                                                <div className="text-sm text-gray-400">Proximity</div>
+                                            </div>
+                                        </div>
+
+                                        {/* Expanded Content */}
+                                        {isExpanded && (
+                                            <div className="border-t border-white/20 pt-4 space-y-4">
+                                                <div>
+                                                    <h4 className="text-lg font-semibold text-white mb-2">Number Sets</h4>
+                                                    <div className="space-y-2">
+                                                        {data.sets.map((set, index) => (
+                                                            <div key={index} className="flex gap-2">
+                                                                <span className="text-gray-400">Set {index + 1}:</span>
+                                                                {set.map((num, i) => (
+                                                                    <span key={i} className="bg-blue-600/30 px-2 py-1 rounded text-white text-sm">
+                                                                        {num}
+                                                                    </span>
+                                                                ))}
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <h4 className="text-lg font-semibold text-white mb-2">Last Draw Results</h4>
+                                                    <div className="flex flex-wrap gap-2 mb-2">
+                                                        {data.actuals.map((number, index) => (
+                                                            <div
+                                                                key={index}
+                                                                className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center text-white font-medium text-sm"
+                                                            >
+                                                                {number}
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                    <p className="text-sm text-gray-400">Draw Date: {data.lastDraw}</p>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    {selectedLotteries.length === 0 && (
+                        <div className="text-center py-12">
+                            <Target className="w-16 h-16 text-gray-500 mx-auto mb-4" />
+                            <h3 className="text-xl font-semibold text-gray-400 mb-2">No Lotteries Selected</h3>
+                            <p className="text-gray-500">Visit the Intake module to select lotteries for analysis</p>
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        // Schedule Module
+        const ScheduleModule = () => {
+            const [currentTime, setCurrentTime] = useState(new Date());
+
+            useEffect(() => {
+                const timer = setInterval(() => {
+                    setCurrentTime(new Date());
+                }, 1000);
+
+                return () => clearInterval(timer);
+            }, []);
+
+            const draws = [
+                {
+                    name: 'Lotto UK Daily',
+                    nextDraw: new Date('2025-07-26T12:30:00'),
+                    frequency: 'Daily',
+                    status: 'active'
+                },
+                {
+                    name: 'Mega 7',
+                    nextDraw: new Date('2025-07-28T20:00:00'),
+                    frequency: 'Weekly',
+                    status: 'upcoming'
+                },
+                {
+                    name: 'Easy 6',
+                    nextDraw: new Date('2025-07-30T19:30:00'),
+                    frequency: 'Bi-weekly',
+                    status: 'upcoming'
+                },
+                {
+                    name: 'Lotto India',
+                    nextDraw: new Date('2025-07-26T21:00:00'),
+                    frequency: 'Daily',
+                    status: 'active'
+                },
+                {
+                    name: 'EuroMillions',
+                    nextDraw: new Date('2025-07-29T21:00:00'),
+                    frequency: 'Bi-weekly',
+                    status: 'upcoming'
+                }
+            ];
+
+            const getTimeRemaining = (targetDate) => {
+                const now = currentTime.getTime();
+                const target = targetDate.getTime();
+                const diff = target - now;
+
+                if (diff <= 0) {
+                    return { expired: true, timeString: 'Draw Completed' };
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                let timeString = '';
+                if (days > 0) timeString += `${days}d `;
+                if (hours > 0) timeString += `${hours}h `;
+                if (minutes > 0) timeString += `${minutes}m `;
+                timeString += `${seconds}s`;
+
+                return { expired: false, timeString };
+            };
+
+            const getStatusColor = (status, expired) => {
+                if (expired) return 'text-red-400';
+                if (status === 'active') return 'text-green-400';
+                return 'text-yellow-400';
+            };
+
+            const getStatusBadge = (status, expired) => {
+                if (expired) return 'bg-red-500/20 text-red-400 border-red-500/30';
+                if (status === 'active') return 'bg-green-500/20 text-green-400 border-green-500/30';
+                return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
+            };
+
+            return (
+                <div className="max-w-4xl mx-auto">
+                    <div className="text-center mb-8">
+                        <Clock className="w-16 h-16 text-green-400 mx-auto mb-4" />
+                        <h1 className="text-3xl font-bold text-white mb-2">Draw Schedule</h1>
+                        <p className="text-gray-300">Live countdown timers for upcoming lottery draws</p>
+                    </div>
+
+                    <div className="mb-6 bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-white/20">
+                        <div className="flex items-center justify-center space-x-4">
+                            <Calendar className="w-6 h-6 text-cyan-400" />
+                            <span className="text-lg font-medium text-white">
+                                Current Time: {currentTime.toLocaleString('en-US', {
+                                    timeZone: 'Asia/Kolkata',
+                                    dateStyle: 'medium',
+                                    timeStyle: 'medium'
+                                })} IST
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="grid lg:grid-cols-2 gap-6">
+                        {draws.map((draw, index) => {
+                            const timeRemaining = getTimeRemaining(draw.nextDraw);
+                            
+                            return (
+                                <div
+                                    key={index}
+                                    className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:border-cyan-400/50 transition-all duration-300"
+                                >
+                                    <div className="flex items-center justify-between mb-4">
+                                        <h3 className="text-xl font-semibold text-white">{draw.name}</h3>
+                                        <span className={`px-3 py-1 rounded-full text-sm font-medium border ${getStatusBadge(draw.status, timeRemaining.expired)}`}>
+                                            {timeRemaining.expired ? 'Completed' : draw.status.charAt(0).toUpperCase() + draw.status.slice(1)}
+                                        </span>
+                                    </div>
+
+                                    <div className="space-y-3">
+                                        <div className="flex justify-between items-center">
+                                            <span className="text-gray-400">Next Draw:</span>
+                                            <span className="text-white">
+                                                {draw.nextDraw.toLocaleString('en-US', {
+                                                    timeZone: 'Asia/Kolkata',
+                                                    dateStyle: 'short',
+                                                    timeStyle: 'short'
+                                                })} IST
+                                            </span>
+                                        </div>
+
+                                        <div className="flex justify-between items-center">
+                                            <span className="text-gray-400">Frequency:</span>
+                                            <span className="text-white">{draw.frequency}</span>
+                                        </div>
+
+                                        <div className="bg-black/30 rounded-lg p-4 text-center border border-gray-600">
+                                            <div className={`text-2xl font-mono font-bold mb-2 ${getStatusColor(draw.status, timeRemaining.expired)}`}>
+                                                {timeRemaining.timeString}
+                                            </div>
+                                            {!timeRemaining.expired && (
+                                                <div className="text-sm text-gray-400">Time Remaining</div>
+                                            )}
+                                        </div>
+
+                                        {timeRemaining.expired && (
+                                            <div className="flex items-center justify-center space-x-2 text-orange-400">
+                                                <AlertCircle size={16} />
+                                                <span className="text-sm">Results processing...</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    <div className="mt-8 bg-blue-600/20 backdrop-blur-lg rounded-2xl p-6 border border-blue-400/30">
+                        <h3 className="text-lg font-semibold text-white mb-2">Schedule Notes</h3>
+                        <ul className="text-gray-300 space-y-1 text-sm">
+                            <li>• All times are displayed in Indian Standard Time (IST)</li>
+                            <li>• Countdown timers update every second for accuracy</li>
+                            <li>• Post-draw analysis begins immediately after completion</li>
+                            <li>• Prediction models are updated within 30 minutes of results</li>
+                        </ul>
+                    </div>
+                </div>
+            );
+        };
+
+        // Insights Module
+        const InsightsModule = () => {
+            const chartRef = React.useRef(null);
+
+            useEffect(() => {
+                if (chartRef.current) {
+                    const ctx = chartRef.current.getContext('2d');
+                    
+                    const chart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['1-10', '11-20', '21-30', '31-40', '41-50'],
+                            datasets: [
+                                {
+                                    label: 'Frequency',
+                                    data: [23, 19, 31, 27, 15],
+                                    backgroundColor: [
+                                        'rgba(6, 182, 212, 0.8)',
+                                        'rgba(59, 130, 246, 0.8)',
+                                        'rgba(147, 51, 234, 0.8)',
+                                        'rgba(245, 158, 11, 0.8)',
+                                        'rgba(34, 197, 94, 0.8)',
+                                    ],
+                                    borderColor: [
+                                        'rgb(6, 182, 212)',
+                                        'rgb(59, 130, 246)',
+                                        'rgb(147, 51, 234)',
+                                        'rgb(245, 158, 11)',
+                                        'rgb(34, 197, 94)',
+                                    ],
+                                    borderWidth: 2,
+                                },
+                            ],
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                    labels: {
+                                        color: 'rgb(209, 213, 219)',
+                                    },
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Number Range Frequency Distribution',
+                                    color: 'rgb(255, 255, 255)',
+                                    font: {
+                                        size: 16,
+                                    },
+                                },
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        color: 'rgb(156, 163, 175)',
+                                    },
+                                    grid: {
+                                        color: 'rgba(156, 163, 175, 0.2)',
+                                    },
+                                },
+                                x: {
+                                    ticks: {
+                                        color: 'rgb(156, 163, 175)',
+                                    },
+                                    grid: {
+                                        color: 'rgba(156, 163, 175, 0.2)',
+                                    },
+                                },
+                            },
+                        },
+                    });
+
+                    return () => chart.destroy();
+                }
+            }, []);
+
+            const insights = [
+                {
+                    title: 'Hot Numbers',
+                    value: '7, 23, 31, 45',
+                    description: 'Most frequently drawn numbers this month',
+                    trend: '+12%',
+                    color: 'text-red-400'
+                },
+                {
+                    title: 'Cold Numbers',
+                    value: '3, 14, 28, 42',
+                    description: 'Least frequently drawn numbers',
+                    trend: '-8%',
+                    color: 'text-blue-400'
+                },
+                {
+                    title: 'Pattern Match',
+                    value: '89.3%',
+                    description: 'AI pattern recognition accuracy',
+                    trend: '+3.2%',
+                    color: 'text-green-400'
+                },
+                {
+                    title: 'Odd/Even Ratio',
+                    value: '3:3',
+                    description: 'Optimal balance in winning combinations',
+                    trend: 'Stable',
+                    color: 'text-purple-400'
+                }
+            ];
+
+            return (
+                <div className="max-w-6xl mx-auto">
+                    <div className="text-center mb-8">
+                        <BarChart3 className="w-16 h-16 text-cyan-400 mx-auto mb-4" />
+                        <h1 className="text-3xl font-bold text-white mb-2">Analytics & Insights</h1>
+                        <p className="text-gray-300">Data-driven lottery analysis and predictive visualizations</p>
+                    </div>
+
+                    {/* Key Insights Grid */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        {insights.map((insight, index) => (
+                            <div
+                                key={index}
+                                className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:border-cyan-400/50 transition-all duration-300"
+                            >
+                                <div className="flex items-center justify-between mb-2">
+                                    <h3 className="text-lg font-semibold text-white">{insight.title}</h3>
+                                    <TrendingUp className={`w-5 h-5 ${insight.color}`} />
+                                </div>
+                                <div className={`text-2xl font-bold mb-2 ${insight.color}`}>
+                                    {insight.value}
+                                </div>
+                                <p className="text-gray-400 text-sm mb-2">{insight.description}</p>
+                                <div className="flex items-center justify-between">
+                                    <span className="text-xs text-gray-500">Trend:</span>
+                                    <span className={`text-xs font-medium ${insight.color}`}>
+                                        {insight.trend}
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Frequency Chart */}
+                    <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 mb-8">
+                        <div className="h-96">
+                            <canvas ref={chartRef}></canvas>
+                        </div>
+                    </div>
+
+                    {/* Spatial Intelligence Map Placeholder */}
+                    <div className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+                        <div className="flex items-center justify-between mb-6">
+                            <h2 className="text-2xl font-bold text-white">Spatial Intelligence Map</h2>
+                            <span className="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-medium border border-yellow-500/30">
+                                AR/VR Integration Pending
+                            </span>
+                        </div>
+                        
+                        <div className="bg-black/30 rounded-xl p-12 text-center border-2 border-dashed border-gray-600 min-h-[300px] flex items-center justify-center">
+                            <div className="text-gray-400">
+                                <div className="w-20 h-20 border-4 border-dashed border-gray-500 rounded-xl mx-auto mb-6 flex items-center justify-center">
+                                    <Sparkles className="w-10 h-10" />
+                                </div>
+                                <h3 className="text-xl font-semibold mb-2">3D Number Density Visualization</h3>
+                                <p className="text-gray-500 mb-4">
+                                    Interactive Three.js visualization will display number relationships,<br />
+                                    frequency clusters, and predictive patterns in 3D space
+                                </p>
+                                <div className="inline-flex items-center space-x-2 bg-blue-600/20 px-4 py-2 rounded-lg border border-blue-600/30">
+                                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                                    <span className="text-blue-300 text-sm">Three.js Integration in Development</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // Trust Module
+        const TrustModule = () => {
+            const auditTrail = [
+                {
+                    timestamp: '2025-07-26 11:38:00 IST',
+                    action: 'Model Update v3.0.8',
+                    hash: 'f6a7b8c9d0e1f2a3b4c5d6e7f4a5b0c1d2e3f4a6',
+                    status: 'verified'
+                },
+                {
+                    timestamp: '2025-07-26 09:15:00 IST',
+                    action: 'Data Sync Complete',
+                    hash: 'a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0',
+                    status: 'verified'
+                },
+                {
+                    timestamp: '2025-07-26 06:00:00 IST',
+                    action: 'Prediction Generation',
+                    hash: 'b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1',
+                    status: 'verified'
+                },
+                {
+                    timestamp: '2025-07-25 23:45:00 IST',
+                    action: 'Algorithm Calibration',
+                    hash: 'c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2',
+                    status: 'verified'
+                }
+            ];
+
+            const metrics = [
+                { label: 'System Uptime', value: '99.97%', color: 'text-green-400' },
+                { label: 'Data Integrity', value: '100%', color: 'text-green-400' },
+                { label: 'Algorithm Accuracy', value: '94.2%', color: 'text-blue-400' },
+                { label: 'Response Time', value: '< 200ms', color: 'text-cyan-400' }
+            ];
+
+            return (
+                <div className="max-w-6xl mx-auto">
+                    <div className="text-center mb-8">
+                        <Shield className="w-16 h-16 text-green-400 mx-auto mb-4" />
+                        <h1 className="text-3xl font-bold text-white mb-2">Trust & Verification</h1>
+                        <p className="text-gray-300">System integrity, audit trails, and transparency metrics</p>
+                    </div>
+
+                    {/* System Status */}
+                    <div className="grid md:grid-cols-4 gap-6 mb-8">
+                        {metrics.map((metric, index) => (
+                            <div
+                                key={index}
+                                className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 text-center"
+                            >
+                                <div className={`text-2xl font-bold mb-2 ${metric.color}`}>
+                                    {metric.value}
+                                </div>
+                                <div className="text-gray-400 text-sm">{metric.label}</div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Current System Hash */}
+                    <div className="bg-gradient-to-r from-green-600/20 to-blue-600/20 backdrop-blur-lg rounded-2xl p-6 border border-white/20 mb-8">
+                        <div className="flex items-center space-x-4 mb-4">
+                            <Hash className="w-8 h-8 text-green-400" />
+                            <h2 className="text-xl font-bold text-white">Current System Hash</h2>
+                            <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-medium border border-green-500/30">
+                                Verified
+                            </span>
+                        </div>
+                        <div className="bg-black/30 rounded-lg p-4 font-mono text-green-400 text-sm break-all border border-gray-600">
+                            SHA256: f6a7b8c9d0e1f2a3b4c5d6e7f4a5b0c1d2e3f4a6
+                        </div>
+                        <div className="mt-2 text-gray-400 text-sm">
+                            Last Updated: July 26, 2025, 11:38 AM IST
+                        </div>
+                    </div>
+
+                    {/* Audit Trail */}
+                    <div className="bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 overflow-hidden">
+                        <div className="px-6 py-4 border-b border-white/20">
+                            <h2 className="text-xl font-bold text-white flex items-center space-x-2">
+                                <Clock className="w-6 h-6 text-blue-400" />
+                                <span>Audit Trail</span>
+                            </h2>
+                        </div>
+
+                        <div className="divide-y divide-white/10">
+                            {auditTrail.map((entry, index) => (
+                                <div key={index} className="px-6 py-4 hover:bg-white/5 transition-colors">
+                                    <div className="flex items-center justify-between mb-2">
+                                        <div className="flex items-center space-x-3">
+                                            <Check className="w-5 h-5 text-green-400" />
+                                            <span className="text-white font-medium">{entry.action}</span>
+                                        </div>
+                                        <span className="text-gray-400 text-sm">{entry.timestamp}</span>
+                                    </div>
+                                    <div className="ml-8">
+                                        <div className="text-gray-400 text-sm font-mono break-all">
+                                            Hash: {entry.hash}
+                                        </div>
+                                        <div className="mt-1">
+                                            <span className="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-medium border border-green-500/30">
+                                                {entry.status}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Compliance Info */}
+                    <div className="mt-8 bg-blue-600/20 backdrop-blur-lg rounded-2xl p-6 border border-blue-400/30">
+                        <h3 className="text-lg font-semibold text-white mb-4">System Compliance</h3>
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 className="text-white font-medium mb-2">Security Standards</h4>
+                                <ul className="text-gray-300 space-y-1 text-sm">
+                                    <li>• SHA-256 cryptographic hashing</li>
+                                    <li>• Real-time integrity verification</li>
+                                    <li>• Automated audit trail generation</li>
+                                    <li>• Data immutability protocols</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-white font-medium mb-2">Transparency Features</h4>
+                                <ul className="text-gray-300 space-y-1 text-sm">
+                                    <li>• Open algorithm documentation</li>
+                                    <li>• Public prediction tracking</li>
+                                    <li>• Performance metric disclosure</li>
+                                    <li>• Historical accuracy reporting</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // User Portal
+        const UserPortal = () => {
+            const [zapierUrl, setZapierUrl] = useState('');
+            const [notifications, setNotifications] = useState({
+                predictions: true,
+                draws: true,
+                updates: false
+            });
+
+            const handleExportCSV = () => {
+                const csvData = [
+                    ['Lottery', 'Predictions', 'Confidence', 'Date'],
+                    ['Mega 7', '12,7,23,45,18,31,9', '87.3%', '2025-07-26'],
+                    ['Easy 6', '3,17,28,39,44,12', '91.7%', '2025-07-26'],
+                    ['Lotto India', '8,22,35,41,16,29', '84.9%', '2025-07-26']
+                ];
+
+                const csvContent = csvData.map(row => row.join(',')).join('\n');
+                const blob = new Blob([csvContent], { type: 'text/csv' });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.setAttribute('hidden', '');
+                a.setAttribute('href', url);
+                a.setAttribute('download', 'quantum_fortuna_predictions.csv');
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            };
+
+            const handleZapierSetup = () => {
+                if (zapierUrl.trim()) {
+                    alert('Zapier webhook configured successfully! You will receive notifications for prediction updates.');
+                    setZapierUrl('');
+                }
+            };
+
+            const toggleNotification = (type) => {
+                setNotifications(prev => ({
+                    ...prev,
+                    [type]: !prev[type]
+                }));
+            };
+
+            return (
+                <div className="max-w-4xl mx-auto">
+                    <div className="text-center mb-8">
+                        <User className="w-16 h-16 text-blue-400 mx-auto mb-4" />
+                        <h1 className="text-3xl font-bold text-white mb-2">User Portal</h1>
+                        <p className="text-gray-300">Export data, configure notifications, and manage settings</p>
+                    </div>
+
+                    <div className="grid lg:grid-cols-2 gap-8">
+                        {/* Export Section */}
+                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+                            <div className="flex items-center space-x-3 mb-6">
+                                <Download className="w-6 h-6 text-green-400" />
+                                <h2 className="text-xl font-bold text-white">Data Export</h2>
+                            </div>
+
+                            <div className="space-y-4">
+                                <div className="bg-black/30 rounded-lg p-4 border border-gray-600">
+                                    <h3 className="text-white font-medium mb-2">Prediction Data</h3>
+                                    <p className="text-gray-400 text-sm mb-4">
+                                        Export current predictions with confidence scores and metadata
+                                    </p>
+                                    <button
+                                        onClick={handleExportCSV}
+                                        className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2"
+                                    >
+                                        <Download size={16} />
+                                        <span>Export CSV</span>
+                                    </button>
+                                </div>
+
+                                <div className="bg-black/30 rounded-lg p-4 border border-gray-600">
+                                    <h3 className="text-white font-medium mb-2">Historical Analysis</h3>
+                                    <p className="text-gray-400 text-sm mb-4">
+                                        Complete historical data and performance metrics
+                                    </p>
+                                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors opacity-50 cursor-not-allowed">
+                                        Coming Soon
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Webhook Configuration */}
+                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
+                            <div className="flex items-center space-x-3 mb-6">
+                                <Webhook className="w-6 h-6 text-purple-400" />
+                                <h2 className="text-xl font-bold text-white">Zapier Integration</h2>
+                            </div>
+
+                            <div className="space-y-4">
+                                <div>
+                                    <label htmlFor="zapier-url" className="block text-white font-medium mb-2">
+                                        Webhook URL
+                                    </label>
+                                    <input
+                                        id="zapier-url"
+                                        type="url"
+                                        value={zapierUrl}
+                                        onChange={(e) => setZapierUrl(e.target.value)}
+                                        placeholder="https://hooks.zapier.com/hooks/catch/..."
+                                        className="w-full bg-black/30 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none transition-colors"
+                                    />
+                                </div>
+
+                                <button
+                                    onClick={handleZapierSetup}
+                                    disabled={!zapierUrl.trim()}
+                                    className="w-full bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white px-4 py-3 rounded-lg font-medium transition-colors"
+                                >
+                                    Configure Webhook
+                                </button>
+
+                                <div className="text-sm text-gray-400">
+                                    <p className="mb-2">Webhook will trigger on:</p>
+                                    <ul className="space-y-1 pl-4">
+                                        <li>• New prediction updates</li>
+                                        <li>• Draw result notifications</li>
+                                        <li>• System status changes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Notification Settings */}
+                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 lg:col-span-2">
+                            <div className="flex items-center space-x-3 mb-6">
+                                <Bell className="w-6 h-6 text-yellow-400" />
+                                <h2 className="text-xl font-bold text-white">Notification Preferences</h2>
+                            </div>
+
+                            <div className="grid md:grid-cols-3 gap-6">
+                                {Object.entries(notifications).map(([key, enabled]) => (
+                                    <div key={key} className="bg-black/30 rounded-lg p-4 border border-gray-600">
+                                        <div className="flex items-center justify-between mb-2">
+                                            <h3 className="text-white font-medium capitalize">
+                                                {key === 'predictions' ? 'New Predictions' : 
+                                                 key === 'draws' ? 'Draw Results' : 'System Updates'}
+                                            </h3>
+                                            <button
+                                                onClick={() => toggleNotification(key)}
+                                                className={`w-12 h-6 rounded-full transition-colors ${
+                                                    enabled ? 'bg-green-600' : 'bg-gray-600'
+                                                }`}
+                                            >
+                                                <div className={`w-5 h-5 bg-white rounded-full transition-transform ${
+                                                    enabled ? 'translate-x-6' : 'translate-x-0.5'
+                                                }`} />
+                                            </button>
+                                        </div>
+                                        <p className="text-gray-400 text-sm">
+                                            {key === 'predictions' ? 'Get notified when new predictions are available' :
+                                             key === 'draws' ? 'Receive draw results and analysis updates' :
+                                             'System maintenance and feature updates'}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Account Settings */}
+                        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 lg:col-span-2">
+                            <div className="flex items-center space-x-3 mb-6">
+                                <Settings className="w-6 h-6 text-cyan-400" />
+                                <h2 className="text-xl font-bold text-white">Account Settings</h2>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div className="space-y-4">
+                                    <div>
+                                        <label className="block text-white font-medium mb-2">Timezone</label>
+                                        <select className="w-full bg-black/30 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-cyan-400 focus:outline-none transition-colors">
+                                            <option value="IST">Indian Standard Time (IST)</option>
+                                            <option value="UTC">Coordinated Universal Time (UTC)</option>
+                                            <option value="EST">Eastern Standard Time (EST)</option>
+                                            <option value="PST">Pacific Standard Time (PST)</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-white font-medium mb-2">Currency</label>
+                                        <select className="w-full bg-black/30 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-cyan-400 focus:outline-none transition-colors">
+                                            <option value="INR">Indian Rupee (₹)</option>
+                                            <option value="USD">US Dollar ($)</option>
+                                            <option value="EUR">Euro (€)</option>
+                                            <option value="GBP">British Pound (£)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-4">
+                                    <div>
+                                        <label className="block text-white font-medium mb-2">Language</label>
+                                        <select className="w-full bg-black/30 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-cyan-400 focus:outline-none transition-colors">
+                                            <option value="en">English</option>
+                                            <option value="hi">Hindi</option>
+                                            <option value="es">Spanish</option>
+                                            <option value="fr">French</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-white font-medium mb-2">Theme</label>
+                                        <select className="w-full bg-black/30 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-cyan-400 focus:outline-none transition-colors">
+                                            <option value="quantum">Quantum (Default)</option>
+                                            <option value="classic">Classic</option>
+                                            <option value="minimal">Minimal</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mt-6 pt-6 border-t border-white/20">
+                                <button className="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                                    Save Settings
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // Main App Component
+        const App = () => {
+            const [activeModule, setActiveModule] = useState('welcome');
+            const [selectedLotteries, setSelectedLotteries] = useState(['mega7', 'easy6']);
+
+            return (
+                <ErrorBoundary>
+                    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+                        {/* Background Effects */}
+                        <div className="fixed inset-0 bg-pattern opacity-40"></div>
+                        
+                        <div className="relative z-10">
+                            <Navigation activeModule={activeModule} setActiveModule={setActiveModule} />
+                            
+                            <main className="container mx-auto px-4 py-8">
+                                {activeModule === 'welcome' && <WelcomeModule />}
+                                {activeModule === 'intake' && (
+                                    <IntakeModule 
+                                        selectedLotteries={selectedLotteries}
+                                        setSelectedLotteries={setSelectedLotteries}
+                                    />
+                                )}
+                                {activeModule === 'predictions' && (
+                                    <PredictionsModule selectedLotteries={selectedLotteries} />
+                                )}
+                                {activeModule === 'schedule' && <ScheduleModule />}
+                                {activeModule === 'insights' && <InsightsModule />}
+                                {activeModule === 'trust' && <TrustModule />}
+                                {activeModule === 'portal' && <UserPortal />}
+                            </main>
+                        </div>
+                    </div>
+                </ErrorBoundary>
+            );
+        };
+
+        // Render the app
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

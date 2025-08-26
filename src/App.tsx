@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 import Navigation from './components/Navigation';
 import WelcomeModule from './components/WelcomeModule';

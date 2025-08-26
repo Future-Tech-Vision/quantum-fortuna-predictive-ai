@@ -43,7 +43,7 @@ npm run dev
 
 ## 🚀 Deployment
 
-**Live Application**: https://future-tech-vision.github.io/quantum-fortuna-predictive-ai/
+**Live Application**: https://bipin-connect.github.io/quantum-fortuna-predictive-ai/
 
 ### Build for Production
 ```bash

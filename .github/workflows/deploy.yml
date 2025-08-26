@@ -70,4 +70,5 @@ jobs:
           git checkout main
           echo "- $(date +'%Y-%m-%d') → $DEPLOY_TAG → $COMMIT_SHA (main) → $(git rev-parse --short gh-pages)" >> DEPLOY_HISTORY.md
           git add DEPLOY_HISTORY.md
-          git
+          git commit -m "docs: update DEPLOY_HISTORY.md for $DEPLOY_TAG"
+          git push origin main

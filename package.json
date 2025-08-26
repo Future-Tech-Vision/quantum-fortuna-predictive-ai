@@ -1,8 +1,9 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "quantum-fortuna-predictive-ai",
+  "version": "5.2.0",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "description": "Quantum Fortuna™ v5.2.0 — Predictive AI dashboard with audit-grade traceability, global lottery analytics, and AR/VR readiness.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,13 +15,13 @@
   "dependencies": {
     "chart.js": "^4.5.0",
     "lucide-react": "^0.344.0",
+    "marked": "^16.2.0",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
-    "@types/chart.js": "^4.0.1",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
@@ -33,6 +34,6 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
-    "vite": "^5.4.2"
+    "vite": "^7.1.3"
   }
 }

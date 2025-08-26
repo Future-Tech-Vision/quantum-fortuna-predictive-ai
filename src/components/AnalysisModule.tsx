@@ -36,7 +36,7 @@ interface AnalysisData {
 }
 
 const AnalysisModule: React.FC = () => {
-  const [analysisResults, setAnalysisResults] = useState<any>(null);
+  const [analysisResults, setAnalysisResults] = useState<unknown>(null);
   const [selectedLottery, setSelectedLottery] = useState<string>('all');
   const [timeRange, setTimeRange] = useState<string>('30d');
 
@@ -387,7 +387,7 @@ const AnalysisModule: React.FC = () => {
       <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 mb-8">
         <h3 className="text-xl font-bold text-white mb-6">Algorithm Performance Analysis</h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {Object.entries(analysisResults.algorithmPerformance).map(([algorithm, performance]: [string, any]) => (
+          {Object.entries(analysisResults.algorithmPerformance).map(([algorithm, performance]: [string, unknown]) => (
             <div key={algorithm} className="bg-black/30 rounded-lg p-4 border border-gray-600">
               <h4 className="text-white font-medium mb-2">{algorithm}</h4>
               <div className="space-y-2">
@@ -415,7 +415,7 @@ const AnalysisModule: React.FC = () => {
       <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 mb-8">
         <h3 className="text-xl font-bold text-white mb-6">Discrepancy Mapping</h3>
         <div className="space-y-4">
-          {analysisResults.discrepancies.map((discrepancy: any, index: number) => (
+          {analysisResults.discrepancies.map((discrepancy: unknown, index: number) => (
             <div key={index} className="bg-red-600/20 rounded-lg p-4 border border-red-400/30">
               <div className="flex items-center justify-between mb-3">
                 <h4 className="text-lg font-semibold text-white">{discrepancy.lottery}</h4>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Brain, TrendingUp, Target, ChevronDown, ChevronUp } from 'lucide-react';
+import { Brain, Target, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface PredictionsModuleProps {
   selectedLotteries: string[];

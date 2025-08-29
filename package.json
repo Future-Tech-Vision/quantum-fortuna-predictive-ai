@@ -1,9 +1,9 @@
 {
   "name": "quantum-fortuna-predictive-ai",
-  "version": "5.2.0",
+  "version": "5.3.0",
   "private": true,
   "type": "module",
-  "description": "Quantum Fortuna™ v5.2.0 — Predictive AI dashboard with audit-grade traceability, global lottery analytics, and AR/VR readiness.",
+  "description": "Quantum Fortuna™ v5.3.0 — Predictive AI dashboard with automated CI/CD deployment, audit-grade traceability, global lottery analytics, and AR/VR readiness.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

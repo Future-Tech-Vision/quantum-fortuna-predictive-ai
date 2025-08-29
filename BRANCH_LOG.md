@@ -1,4 +1,0 @@
-- 2025-08-26 → Disposed: feature/legacy-cleanup → SHA: 
-- 2025-08-26 → Disposed: feature/legacy-cleanup → SHA:  → By: AIArchitect → Reason: Deprecated logic removed
-- 2025-08-26 → Disposed: feature/legacy-cleanup → SHA: N/A → By: AIArchitect → Reason: Deprecated logic removed
-- 2025-08-26 → Disposed: feature/legacy-cleanup → SHA: N/A → By: AIArchitect → Reason: Deprecated logic removed

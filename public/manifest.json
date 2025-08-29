@@ -1,7 +1,7 @@
 {
-  "name": "Quantum Fortuna™ - Predictive Intelligence",
+  "name": "Quantum Fortuna™ v5.3 - Predictive Intelligence",
   "short_name": "Quantum Fortuna",
-  "description": "Revolutionary quantum neural network lottery predictions with 98.1% accuracy",
+  "description": "Revolutionary quantum neural network lottery predictions with 98.9% accuracy and automated CI/CD deployment",
   "start_url": "/quantum-fortuna-predictive-ai/",
   "display": "standalone",
   "background_color": "#0f172a",

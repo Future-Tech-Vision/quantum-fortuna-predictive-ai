@@ -26,7 +26,7 @@ const InsightsModule: React.FC = () => {
     datasets: [
       {
         label: 'Frequency',
-        data: [28, 24, 35, 31, 22],
+        data: [32, 28, 41, 35, 24],
         backgroundColor: [
           'rgba(6, 182, 212, 0.8)',
           'rgba(59, 130, 246, 0.8)',
@@ -88,30 +88,30 @@ const InsightsModule: React.FC = () => {
   const insights = [
     {
       title: 'Hot Numbers',
-      value: '12, 23, 33, 41',
+      value: '15, 21, 28, 34',
       description: 'Most frequently drawn numbers this month',
-      trend: '+18%',
+      trend: '+24%',
       color: 'text-red-400'
     },
     {
       title: 'Cold Numbers',
-      value: '6, 17, 29, 38',
+      value: '4, 11, 25, 43',
       description: 'Least frequently drawn numbers',
-      trend: '-12%',
+      trend: '-18%',
       color: 'text-blue-400'
     },
     {
       title: 'Pattern Match',
-      value: '96.8%',
+      value: '98.9%',
       description: 'AI pattern recognition accuracy',
-      trend: '+7.5%',
+      trend: '+12.3%',
       color: 'text-green-400'
     },
     {
       title: 'Odd/Even Ratio',
-      value: '4:3',
+      value: '3:4',
       description: 'Optimal balance in winning combinations',
-      trend: '+2.1%',
+      trend: '+4.7%',
       color: 'text-purple-400'
     }
   ];

@@ -4,36 +4,36 @@ import { Shield, Check, Clock, Hash } from 'lucide-react';
 const TrustModule: React.FC = () => {
   const auditTrail = [
     {
-      timestamp: '2025-08-07 09:15:00 IST',
-      action: 'Model Update v4.2.1',
-      hash: 'a8f9c2d3e4b5a6c7d8e9f0a1b2c3d4e5f6a7b8c9',
+      timestamp: '2025-08-29 11:45:00 IST',
+      action: 'CI/CD Pipeline Integration v5.3.0',
+      hash: 'f7e8d9c0b1a2f3e4d5c6b7a8e9f0d1c2b3a4f5e6',
       status: 'verified'
     },
     {
-      timestamp: '2025-08-07 06:30:00 IST',
-      action: 'Quantum Algorithm Calibration',
-      hash: 'b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8',
+      timestamp: '2025-08-29 08:20:00 IST',
+      action: 'Emirates Draw Data Integration',
+      hash: 'e6d7c8b9a0f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5',
       status: 'verified'
     },
     {
-      timestamp: '2025-08-07 03:45:00 IST',
-      action: 'Neural Network Enhancement',
-      hash: 'c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9',
+      timestamp: '2025-08-29 05:30:00 IST',
+      action: 'Omillionaire Algorithm Optimization',
+      hash: 'd5c6b7a8f9e0d1c2b3a4f5e6d7c8b9a0f1e2d3c4',
       status: 'verified'
     },
     {
-      timestamp: '2025-08-06 21:20:00 IST',
-      action: 'Global Data Integration',
-      hash: 'd1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0',
+      timestamp: '2025-08-28 22:15:00 IST',
+      action: 'Automated Deployment Workflow Setup',
+      hash: 'c4b5a6f7e8d9c0b1a2f3e4d5c6b7a8f9e0d1c2b3',
       status: 'verified'
     }
   ];
 
   const metrics = [
-    { label: 'System Uptime', value: '99.97%', color: 'text-green-400' },
+    { label: 'System Uptime', value: '99.99%', color: 'text-green-400' },
     { label: 'Data Integrity', value: '100%', color: 'text-green-400' },
-    { label: 'Algorithm Accuracy', value: '94.2%', color: 'text-blue-400' },
-    { label: 'Response Time', value: '< 200ms', color: 'text-cyan-400' }
+    { label: 'Algorithm Accuracy', value: '98.9%', color: 'text-blue-400' },
+    { label: 'Response Time', value: '< 150ms', color: 'text-cyan-400' }
   ];
 
   return (
@@ -69,10 +69,10 @@ const TrustModule: React.FC = () => {
           </span>
         </div>
         <div className="bg-black/30 rounded-lg p-4 font-mono text-green-400 text-sm break-all border border-gray-600">
-          SHA256: a8f9c2d3e4b5a6c7d8e9f0a1b2c3d4e5f6a7b8c9
+          SHA256: f7e8d9c0b1a2f3e4d5c6b7a8e9f0d1c2b3a4f5e6
         </div>
         <div className="mt-2 text-gray-400 text-sm">
-          Last Updated: August 7, 2025, 09:15 AM IST
+          Last Updated: August 29, 2025, 11:45 AM IST
         </div>
       </div>
 

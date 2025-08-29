@@ -8,11 +8,13 @@ interface IntakeModuleProps {
 
 const IntakeModule: React.FC<IntakeModuleProps> = ({ selectedLotteries, setSelectedLotteries }) => {
   const lotteries = [
-    { id: 'mega7', name: 'Mega 7', region: 'International', frequency: 'Weekly' },
-    { id: 'easy6', name: 'Easy 6', region: 'Regional', frequency: 'Bi-weekly' },
+    { id: 'emirates_mega7', name: 'Emirates Draw MEGA7', region: 'UAE', frequency: 'Weekly' },
+    { id: 'emirates_easy6', name: 'Emirates Draw EASY6', region: 'UAE', frequency: 'Bi-weekly' },
+    { id: 'emirates_fast5', name: 'Emirates Draw FAST5', region: 'UAE', frequency: 'Daily' },
+    { id: 'omillionaire', name: 'Omillionaire', region: 'Oman', frequency: 'Weekly' },
     { id: 'lotto_india', name: 'Lotto India', region: 'India', frequency: 'Daily' },
     { id: 'lotto_uk', name: 'Lotto UK Daily', region: 'United Kingdom', frequency: 'Daily' },
-    { id: 'powerball', name: 'Powerball', region: 'USA', frequency: 'Tri-weekly' },
+    { id: 'powerball_usa', name: 'Powerball USA', region: 'USA', frequency: 'Tri-weekly' },
     { id: 'euromillions', name: 'EuroMillions', region: 'Europe', frequency: 'Bi-weekly' },
     { id: 'mega_millions', name: 'Mega Millions', region: 'USA', frequency: 'Bi-weekly' },
     { id: 'oz_lotto', name: 'Oz Lotto', region: 'Australia', frequency: 'Weekly' },
@@ -23,8 +25,8 @@ const IntakeModule: React.FC<IntakeModuleProps> = ({ selectedLotteries, setSelec
     { id: 'irish_lotto', name: 'Irish Lotto', region: 'Ireland', frequency: 'Bi-weekly' },
     { id: 'france_loto', name: 'France Loto', region: 'France', frequency: 'Tri-weekly' },
     { id: 'spanish_lotto', name: 'La Primitiva', region: 'Spain', frequency: 'Bi-weekly' },
-    { id: 'free_lottery_net', name: 'Free-Lottery.net Daily', region: 'International', frequency: 'Daily' },
-    { id: 'uk_free_lottery', name: 'UK Free Lottery', region: 'United Kingdom', frequency: 'Daily' },
+    { id: 'lottery_co_uk', name: 'Lottery.co.uk Free', region: 'United Kingdom', frequency: 'Daily' },
+    { id: 'uk_free_lottery', name: 'UK Free Lottery Weekly', region: 'United Kingdom', frequency: 'Weekly' },
   ];
 
   const handleToggle = (lotteryId: string) => {

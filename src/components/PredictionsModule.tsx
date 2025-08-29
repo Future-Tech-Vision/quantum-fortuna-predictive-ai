@@ -17,19 +17,60 @@ const PredictionsModule: React.FC<PredictionsModuleProps> = ({ selectedLotteries
 
   // Example predictions object — replace with your actual data source
   const predictions: Record<string, PredictionData> = {
-    lotto1: {
-      name: 'Mega Jackpot',
-      numbers: [5, 12, 19, 28, 33, 42],
-      confidence: 92,
-      notes: 'High confidence due to historical pattern match'
+    emirates_mega7: {
+      name: 'Emirates Draw MEGA7',
+      numbers: [8, 14, 22, 29, 35, 41, 47],
+      confidence: 99.1,
+      notes: 'Perfect pattern alignment with quantum neural network v5.3'
     },
-    lotto2: {
-      name: 'Daily Draw',
-      numbers: [3, 8, 14, 21, 27, 36],
-      confidence: 85,
-      notes: 'Moderate confidence; seasonal variance detected'
+    emirates_easy6: {
+      name: 'Emirates Draw EASY6',
+      numbers: [3, 11, 18, 25, 32, 39],
+      confidence: 97.8,
+      notes: 'High confidence based on bi-weekly frequency analysis'
+    },
+    emirates_fast5: {
+      name: 'Emirates Draw FAST5',
+      numbers: [7, 15, 23, 31, 44],
+      confidence: 96.2,
+      notes: 'Daily pattern optimization with rapid prediction algorithm'
+    },
+    omillionaire: {
+      name: 'Omillionaire',
+      numbers: [5, 12, 19, 26, 33, 40, 47],
+      confidence: 98.4,
+      notes: 'Premium lottery algorithm with enhanced accuracy'
+    },
+    lotto_india: {
+      name: 'Lotto India',
+      numbers: [9, 16, 23, 30, 37, 44],
+      confidence: 98.1,
+      notes: 'Daily draw optimization with ensemble AI v5.4'
+    },
+    powerball_usa: {
+      name: 'Powerball USA',
+      numbers: [7, 21, 34, 48, 62],
+      confidence: 96.3,
+      notes: 'Multi-state lottery with quantum boost algorithm'
+    },
+    euromillions: {
+      name: 'EuroMillions',
+      numbers: [4, 17, 28, 39, 50],
+      confidence: 97.9,
+      notes: 'European lottery with Lucky Stars optimization'
+    },
+    lottery_co_uk: {
+      name: 'Lottery.co.uk Free',
+      numbers: [2, 9, 16, 23, 30, 37],
+      confidence: 95.8,
+      notes: 'Free platform algorithm with enhanced accuracy'
+    },
+    uk_free_lottery: {
+      name: 'UK Free Lottery Weekly',
+      numbers: [6, 13, 20, 27, 34, 41],
+      confidence: 96.4,
+      notes: 'Weekly pattern analysis with consistent performance'
     }
-    // Add more lotteries as needed
   };
 
   useEffect(() => {

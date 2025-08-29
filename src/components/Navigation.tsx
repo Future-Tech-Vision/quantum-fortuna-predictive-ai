@@ -25,7 +25,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeModule, setActiveModule }
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-            Quantum Fortuna™ v4.2
+            Quantum Fortuna™ v5.3
           </div>
           
           <div className="flex space-x-1">

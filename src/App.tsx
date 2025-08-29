@@ -23,11 +23,13 @@ type ActiveModule =
 function App() {
   const [activeModule, setActiveModule] = useState<ActiveModule>('welcome');
   const [selectedLotteries, setSelectedLotteries] = useState<string[]>([
-    'mega7',
-    'easy6',
+    'emirates_mega7',
+    'emirates_easy6',
+    'emirates_fast5',
+    'omillionaire',
     'lotto_india',
     'lotto_uk',
-    'powerball',
+    'powerball_usa',
     'euromillions',
     'mega_millions',
     'oz_lotto',
@@ -38,7 +40,7 @@ function App() {
     'irish_lotto',
     'france_loto',
     'spanish_lotto',
-    'free_lottery_net',
+    'lottery_co_uk',
     'uk_free_lottery',
   ]);
 

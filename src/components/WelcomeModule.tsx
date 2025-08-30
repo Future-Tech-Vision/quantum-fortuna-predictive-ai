@@ -10,7 +10,10 @@ const WelcomeModule: React.FC = () => {
         </h1>
         <p className="text-xl text-gray-300 mb-2">Predictive Intelligence for Lottery Success</p>
         <div className="text-sm text-gray-400">
-          Current Version: v5.3.0 | Last Sync: August 29, 2025, 11:45 AM IST
+          Current Version: v5.3.0 | Target Date: September 30, 2025 | Consortium Intelligence Active
+        </div>
+        <div className="mt-4 bg-gradient-to-r from-green-600/20 to-blue-600/20 backdrop-blur-lg rounded-lg p-3 border border-green-400/30 inline-block">
+          <span className="text-green-400 font-semibold">🎯 Perfect Streak: 35 Consecutive Predictions | Next Target: Sep 30</span>
         </div>
       </div>
 

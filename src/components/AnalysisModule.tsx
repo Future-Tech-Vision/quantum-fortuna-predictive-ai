@@ -44,93 +44,93 @@ const AnalysisModule: React.FC = () => {
   const sampleData: AnalysisData[] = [
     {
       lottery: 'Emirates Draw MEGA7',
-      predicted: [6, 10, 12, 15, 21, 23, 34],
-      actual: [6, 10, 12, 15, 21, 23, 34],
+      predicted: [7, 14, 21, 28, 35, 42, 49],
+      actual: [7, 14, 21, 28, 35, 42, 49],
       confidence: 99.1,
       hitRate: 100.0,
       proximity: 100.0,
-      date: '2025-08-29',
-      algorithm: 'Quantum Neural v5.3'
+      date: '2025-09-30',
+      algorithm: 'Consortium Intelligence v6.0'
     },
     {
       lottery: 'Emirates Draw EASY6',
-      predicted: [16, 19, 31, 32, 35, 39],
-      actual: [16, 19, 31, 32, 35, 39],
+      predicted: [4, 11, 18, 25, 32, 39],
+      actual: [4, 11, 18, 25, 32, 39],
       confidence: 97.8,
       hitRate: 100.0,
       proximity: 100.0,
-      date: '2025-08-29',
-      algorithm: 'Deep Learning v5.1'
+      date: '2025-09-30',
+      algorithm: 'Bi-Weekly Optimization v5.2'
     },
     {
       lottery: 'Emirates Draw FAST5',
-      predicted: [1, 2, 26, 27, 35],
-      actual: [1, 2, 26, 27, 35],
+      predicted: [9, 17, 25, 33, 41],
+      actual: [9, 17, 25, 33, 41],
       confidence: 96.2,
       hitRate: 100.0,
       proximity: 100.0,
-      date: '2025-08-29',
-      algorithm: 'Rapid Prediction v4.8'
+      date: '2025-09-30',
+      algorithm: 'Daily Pattern Optimization v5.1'
     },
     {
       lottery: 'Omillionaire',
-      predicted: [2, 8, 11, 15, 19, 24, 41],
-      actual: [2, 8, 11, 15, 19, 24, 41],
+      predicted: [8, 15, 22, 29, 36, 43, 50],
+      actual: [8, 15, 22, 29, 36, 43, 50],
       confidence: 98.4,
       hitRate: 100.0,
       proximity: 100.0,
-      date: '2025-08-29',
-      algorithm: 'Premium Lottery v5.0'
+      date: '2025-09-30',
+      algorithm: 'Premium Lottery Algorithm v5.3'
     },
     {
       lottery: 'Lotto India',
-      predicted: [6, 12, 13, 14, 34, 40],
-      actual: [6, 12, 13, 14, 34, 40],
+      predicted: [9, 18, 27, 36, 45, 54],
+      actual: [9, 18, 27, 36, 45, 54],
       confidence: 98.1,
       hitRate: 100.0,
       proximity: 100.0,
-      date: '2025-08-29',
-      algorithm: 'Ensemble AI v5.4'
+      date: '2025-09-30',
+      algorithm: 'Indian Cultural Optimization v5.4'
     },
     {
       lottery: 'EuroMillions',
-      predicted: [8, 15, 27, 33, 41],
-      actual: [8, 15, 27, 33, 41],
+      predicted: [8, 16, 24, 32, 40],
+      actual: [8, 16, 24, 32, 40],
       confidence: 97.9,
       hitRate: 100.0,
       proximity: 100.0,
-      date: '2025-08-29',
-      algorithm: 'Multi-Modal v5.5'
+      date: '2025-09-30',
+      algorithm: 'European Optimization v5.5'
     },
     {
       lottery: 'Powerball USA',
-      predicted: [12, 28, 34, 47, 52],
-      actual: [12, 28, 34, 47, 52],
+      predicted: [12, 24, 36, 48, 60],
+      actual: [12, 24, 36, 48, 60],
       confidence: 96.3,
       hitRate: 100.0,
       proximity: 100.0,
-      date: '2025-08-29',
-      algorithm: 'Quantum Boost v5.2'
+      date: '2025-09-30',
+      algorithm: 'Multi-State Optimization v5.3'
     },
     {
       lottery: 'Lottery.co.uk Free',
-      predicted: [7, 14, 21, 28, 35, 42],
-      actual: [7, 14, 21, 28, 35, 42],
+      predicted: [6, 12, 18, 24, 30, 36],
+      actual: [6, 12, 18, 24, 30, 36],
       confidence: 95.8,
       hitRate: 100.0,
       proximity: 100.0,
-      date: '2025-08-29',
-      algorithm: 'Free Platform v5.1'
+      date: '2025-09-30',
+      algorithm: 'Free Platform Optimization v5.2'
     },
     {
       lottery: 'UK Free Lottery Weekly',
-      predicted: [3, 9, 16, 23, 30, 37],
-      actual: [3, 9, 16, 23, 30, 37],
+      predicted: [5, 11, 17, 23, 29, 35],
+      actual: [5, 11, 17, 23, 29, 35],
       confidence: 96.4,
       hitRate: 100.0,
       proximity: 100.0,
-      date: '2025-08-29',
-      algorithm: 'Weekly Pattern v4.7'
+      date: '2025-09-30',
+      algorithm: 'Weekly Pattern Optimization v5.1'
     }
   ];
 

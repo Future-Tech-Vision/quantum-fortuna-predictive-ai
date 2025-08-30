@@ -15,49 +15,49 @@ const ScheduleModule: React.FC = () => {
   const draws = [
     {
       name: 'Emirates Draw MEGA7',
-      nextDraw: new Date('2025-08-31T20:00:00'),
+      nextDraw: new Date('2025-09-30T20:00:00'),
       frequency: 'Weekly',
       status: 'upcoming'
     },
     {
       name: 'Emirates Draw EASY6',
-      nextDraw: new Date('2025-08-30T19:30:00'),
+      nextDraw: new Date('2025-09-30T19:30:00'),
       frequency: 'Bi-weekly',
       status: 'upcoming'
     },
     {
       name: 'Emirates Draw FAST5',
-      nextDraw: new Date('2025-08-30T18:00:00'),
+      nextDraw: new Date('2025-09-30T18:00:00'),
       frequency: 'Daily',
       status: 'active'
     },
     {
       name: 'Omillionaire',
-      nextDraw: new Date('2025-09-04T21:00:00'),
+      nextDraw: new Date('2025-09-30T21:00:00'),
       frequency: 'Weekly',
       status: 'upcoming'
     },
     {
       name: 'Lotto India',
-      nextDraw: new Date('2025-08-30T21:00:00'),
+      nextDraw: new Date('2025-09-30T21:00:00'),
       frequency: 'Daily',
       status: 'active'
     },
     {
       name: 'EuroMillions',
-      nextDraw: new Date('2025-08-30T21:00:00'),
+      nextDraw: new Date('2025-09-30T21:00:00'),
       frequency: 'Bi-weekly',
       status: 'upcoming'
     },
     {
       name: 'Lottery.co.uk Free',
-      nextDraw: new Date('2025-08-30T12:00:00'),
+      nextDraw: new Date('2025-09-30T12:00:00'),
       frequency: 'Daily',
       status: 'active'
     },
     {
       name: 'Powerball USA',
-      nextDraw: new Date('2025-08-31T23:00:00'),
+      nextDraw: new Date('2025-09-30T23:00:00'),
       frequency: 'Bi-weekly',
       status: 'upcoming'
     }
